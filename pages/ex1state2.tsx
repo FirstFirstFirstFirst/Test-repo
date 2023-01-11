@@ -38,7 +38,7 @@ function Example1() {
     
     return (
         <div>
-            hello
+            hello wat zup
         </div>
     )
 }

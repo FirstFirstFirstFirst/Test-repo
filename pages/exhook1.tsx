@@ -7,7 +7,10 @@ export default function Home() {
         <div>
             <p>You have moved {count} spots</p>
             <button onClick={()=> setCount(count+1)}>
-                Move 1 spots
+                Move forward 1 spot
+            </button>
+            <button onClick={()=> setCount(count-1)}>
+                Move backward 1 spot
             </button>
 
         </div>
