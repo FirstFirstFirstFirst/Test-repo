@@ -6,20 +6,6 @@ function Example2() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // async function fetchData() {
-    //   try {
-    //     const res = await fetch('https://api1.binance.com/api/v3/klines?interval=1h&symbol=BTCUSDT');
-    //     const data = await res.json();
-    //     setData(data);
-    //   } catch (error) {
-    //     setError(error);
-    //   } finally {
-    //     setLoading(false);
-    //   }
-    // }
-    // fetchData();
-
-
     (async () => {
       try {
         const res = await fetch('https://api1.binance.com/api/v3/klines?interval=1h&symbol=BTCUSDT');
@@ -45,10 +31,10 @@ function Example2() {
   
   return (
     <div>
-      {data.map((item:number | string, index:number) => (
-        <div key={index}>
+      {data?.map((item:number | string, index:number) => (
+        <div key = {index}>
           {item.map((innerItem:number | string, innerIndex:number) => (
-            <p key={innerIndex}>
+            <p key = {innerIndex}>
               {innerItem}
             </p>
           ))}

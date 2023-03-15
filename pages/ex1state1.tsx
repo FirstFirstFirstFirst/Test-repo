@@ -1,9 +1,12 @@
 import { useState } from "react"
 import { useEffect } from "react";
 
-
 function Example1() {
-    const [data, setData] = useState();
+    interface Data {
+        mins: Number,
+        price: Number,
+    }
+    const [data, setData] = useState({mins: 0, price: 0});
     const [error, setError] = useState();
     const [loading, setLoading] = useState(true);
 
@@ -12,11 +15,11 @@ function Example1() {
             (async() => {
                 const url = 'https://api1.binance.com/api/v3/avgPrice?symbol=BTCUSDT';
                 const res = await fetch(url);
-                const data = await res.json();
-                setData(data);
+                const {mins, price} = await res.json();
+                setData({mins , price});
     
             })();
-        }   catch(error) {
+        }   catch(error){
             setError(error);
         }   finally {
             setLoading(false);

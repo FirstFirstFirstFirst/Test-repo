@@ -1,7 +1,7 @@
-import { use, useEffect, useState } from "react";
+import { JSXElementConstructor, ReactElement, ReactFragment, ReactPortal, use, useEffect, useState } from "react";
 
 function Example3() {
-    const [data, setData] = useState();
+    const [data, setData] = useState({bids: {}, asks: {}});
     const [error, setError] = useState();
     const [loading, setLoading] = useState(true);
 
@@ -27,11 +27,11 @@ function Example3() {
     if(error) {
         return <div>{error.message}</div>
     };
-
+    
     return (
         <div>
             <div>
-            {data.bids.map((item, index) => (
+            {data?.bids.map((item: { [x: string]: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; }, index: string | number) => (
                 <div key = {index[index]}>
                     {item[index]}
                 </div>
@@ -39,13 +39,12 @@ function Example3() {
             </div>
 
             <div>
-            {data.asks.map((item, index) => (
+            {data?.asks.map((item: { [x: string]: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; }, index: string | number) => (
                 <div key = {index[index]}>
                     {item[index]}
                 </div>
                 ))}
             </div>
-            
         </div>
     )
 }
